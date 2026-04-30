@@ -1,6 +1,15 @@
-# Python scripts (build tools)
-!generate_thumbnails.py
+# Build artifacts
+album-covers/
 build_manifest.py
+outline.md
+stepfun_api.md
+
+# Generation scripts (no longer needed after generation)
+generate_covers.py
+generate_covers_100.py
+
+# Keep thumbnail generator (may be useful for regeneration)
+!generate_thumbnails.py
 
 # OS files
 .DS_Store
