@@ -1,0 +1,21 @@
+# Generated thumbnails (too large for git, generated on demand)
+website/thumbnails/
+
+# Python scripts (build tools, not site assets)
+generate_thumbnails.py
+build_manifest.py
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+.env
