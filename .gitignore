@@ -1,8 +1,5 @@
-# Generated thumbnails (too large for git, generated on demand)
-website/thumbnails/
-
-# Python scripts (build tools, not site assets)
-generate_thumbnails.py
+# Python scripts (build tools)
+!generate_thumbnails.py
 build_manifest.py
 
 # OS files
