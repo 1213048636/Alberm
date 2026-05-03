@@ -105,7 +105,7 @@
     currentIndex = filtered.indexOf(origIndex);
     const entry = manifest[origIndex];
 
-    lightboxImg.src = entry.thumbPath;
+    lightboxImg.src = entry.sourcePath;
     lightboxImg.dataset.origIndex = origIndex;
     lightboxImg.alt = `${entry.style} - ${entry.filename}`;
 
@@ -132,7 +132,7 @@
     const origIndex = filtered[currentIndex];
     const entry = manifest[origIndex];
 
-    lightboxImg.src = entry.thumbPath;
+    lightboxImg.src = entry.sourcePath;
     lightboxImg.dataset.origIndex = origIndex;
     lightboxImg.alt = `${entry.style} - ${entry.filename}`;
 
