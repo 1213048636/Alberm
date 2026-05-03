@@ -94,6 +94,16 @@ HTML + CSS + JS + 存在危机 + AI
 
 ---
 
+## 致谢
+
+所有专辑封面由**阶跃星辰（Stepfun）**的 [step-image-edit-2](https://platform.stepfun.com/docs/zh/guides/models/step-image-edit-2) 模型生成。这是一款图像编辑能力卓越的 AI 模型，感谢他们提供免费的 API，让这个项目从一堆代码变成了 1000 张好看（以及部分争议性）的封面。
+
+## Credits
+
+All album covers were generated using **Stepfun's** [step-image-edit-2](https://platform.stepfun.com/docs/zh/guides/models/step-image-edit-2) model. Huge thanks to the Stepfun team for providing free API access — without them, this project would just be a gallery of empty `<div>` elements.
+
+---
+
 *Made with ☕ and questionable life choices*
 
 **qsdclbg**
