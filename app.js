@@ -11,6 +11,14 @@
   let filtered = [];   // currently displayed indices
   let currentIndex = 0; // lightbox position in filtered list
 
+  // ─── Utility ──────────────────────────────────────────────────────────
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+
   // ─── DOM refs ───────────────────────────────────────────────────────────
   const gallery = document.getElementById("gallery");
   const lightbox = document.getElementById("lightbox");
@@ -34,8 +42,9 @@
       return;
     }
 
-    // All images shown by default
+    // All images shown by default (random order)
     filtered = manifest.map((_, i) => i);
+    shuffle(filtered);
     renderGallery();
     setupEventListeners();
   }
@@ -74,10 +83,12 @@
 
     if (style === "all") {
       filtered = manifest.map((_, i) => i);
+      shuffle(filtered);
     } else {
       filtered = manifest
         .map((_, i) => i)
         .filter((i) => manifest[i].style === style);
+      shuffle(filtered);
     }
 
     renderGallery();
