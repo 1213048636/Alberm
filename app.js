@@ -37,7 +37,6 @@
     // All images shown by default
     filtered = manifest.map((_, i) => i);
     renderGallery();
-    setupIntersectionObserver();
     setupEventListeners();
   }
 
@@ -45,7 +44,7 @@
   function renderGallery() {
     gallery.innerHTML = "";
 
-    filtered.forEach((origIndex) => {
+    filtered.forEach((origIndex, idx) => {
       const entry = manifest[origIndex];
       const item = document.createElement("div");
       item.className = "gallery-item";
@@ -54,40 +53,16 @@
       item.setAttribute("aria-label", `${entry.style} - ${entry.filename}`);
       item.dataset.index = origIndex;
       item.dataset.style = entry.style;
+      item.style.setProperty("--i", idx % 20);
 
       const img = document.createElement("img");
       img.src = entry.thumbPath;
       img.alt = `${entry.style} album cover`;
-      img.loading = "lazy";
       img.decoding = "async";
+      img.onload = () => item.classList.add("loaded");
 
       item.appendChild(img);
       gallery.appendChild(item);
-    });
-  }
-
-  // ─── Intersection Observer (fade-in) ─────────────────────────────────
-  let observer;
-
-  function setupIntersectionObserver() {
-    if (observer) observer.disconnect();
-
-    observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: "100px", threshold: 0.1 }
-    );
-  }
-
-  function observeItems() {
-    document.querySelectorAll(".gallery-item").forEach((el) => {
-      observer.observe(el);
     });
   }
 
@@ -106,7 +81,6 @@
     }
 
     renderGallery();
-    observeItems();
 
     // Close lightbox if current image not in new filtered set
     if (!lightbox.hidden) {
