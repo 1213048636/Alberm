@@ -2,6 +2,8 @@
 
 > *Where AI-generated album covers judge your music taste*
 
+**Live Demo: https://1213048636.github.io/Alberm/**
+
 [English](#english) · [中文](#中文)
 
 ---
