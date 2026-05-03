@@ -107,6 +107,7 @@
 
     lightboxImg.src = entry.sourcePath;
     lightboxImg.dataset.origIndex = origIndex;
+    lightboxImg.dataset.thumb = entry.thumbPath;
     lightboxImg.alt = `${entry.style} - ${entry.filename}`;
 
     updateCounter();
@@ -134,6 +135,7 @@
 
     lightboxImg.src = entry.sourcePath;
     lightboxImg.dataset.origIndex = origIndex;
+    lightboxImg.dataset.thumb = entry.thumbPath;
     lightboxImg.alt = `${entry.style} - ${entry.filename}`;
 
     updateCounter();
@@ -173,6 +175,13 @@
     // Click backdrop to close
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) closeLightbox();
+    });
+
+    // Fallback to thumb if full-size image not available (e.g. GitHub Pages)
+    lightboxImg.addEventListener("error", () => {
+      if (lightboxImg.dataset.thumb && lightboxImg.src !== lightboxImg.dataset.thumb) {
+        lightboxImg.src = lightboxImg.dataset.thumb;
+      }
     });
 
     // Keyboard navigation
